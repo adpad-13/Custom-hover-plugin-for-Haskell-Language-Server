@@ -54,9 +54,14 @@ cabal build exe:haskell-language-server
 
 ```
 To use your clone hls for a project ,
-run : cabal list-bin exe:haskell-language-server
+run :
+```
+cabal list-bin exe:haskell-language-server
+```
 copy the path to the exe folder
+
 create a .vscode folder inside the project at the root position 
+
 create a settings.json file inside the .vscode folder containing the path
 ```
 {
