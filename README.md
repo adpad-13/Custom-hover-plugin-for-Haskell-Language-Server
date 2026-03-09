@@ -58,8 +58,10 @@ run : cabal list-bin exe:haskell-language-server
 copy the path to the exe folder
 create a .vscode folder inside the project at the root position 
 create a settings.json file inside the .vscode folder containing the path
+```
 {
     "haskell.serverExecutablePath": "copied-path",
     "haskell.manageHLS": "PATH"
 }
+```
 
