@@ -33,14 +33,14 @@ descriptor :: Recorder (WithPriority Log) -> PluginId -> PluginDescriptor IdeSta
 descriptor _ plId = (defaultPluginDescriptor plId "Provides custom AST hover info")
     { pluginHandlers = mkPluginHandler SMethod_TextDocumentHover hoverHandler }
 
--- | The Handler (No type signature! We let GHC infer the complex new Monad stack)
+-- | The Handler 
 hoverHandler state _pId params = do
-    -- InR Null is the new modern LSP way of saying "Nothing to show here"
+    
     -- let myTest = "**plugin is alive**"
     
     -- let HoverParams{_position = pos} = params
     -- let Position{_line = currLine, _character = currCol} = pos
-    -- let myText = "📍 **Position Tracker:** You are hovering at Line "
+    -- let myText = " **Position Tracker:** You are hovering at Line "
     --              <>T.pack (show currLine)
     --              <> "column"
     --              <> T.pack (show currCol)
@@ -108,7 +108,8 @@ hoverHandler state _pId params = do
                                 markup = MarkupContent MarkupKind_Markdown myText
                                 hoverInfo = Hover (InL markup) Nothing
                             pure (InL hoverInfo)
-
+                            
+-- | to check if the selected node contains teh point
 containsPoint :: RealSrcSpan -> Int ->Int -> Bool
 containsPoint spn line col =
     let startLine = srcSpanStartLine spn
@@ -117,7 +118,7 @@ containsPoint spn line col =
         endCol    = srcSpanEndCol spn
     in (line > startLine || (line == startLine && col >= startCol)) &&
        (line < endLine   || (line == endLine   && col <= endCol))
-
+-- | to find the deepest node as much as possible to triangulate the position of the expression
 findDeepestNode :: Int -> Int -> HieAST a -> Maybe (HieAST a)
 findDeepestNode line col node=
     if containsPoint (nodeSpan node) line col
