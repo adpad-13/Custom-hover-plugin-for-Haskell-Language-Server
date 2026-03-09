@@ -29,6 +29,10 @@ If you hover over a function *definition* (a Binder), my plugin will say `(No ty
 
 
 ## Demo
+<img width="588" height="187" alt="image" src="https://github.com/user-attachments/assets/e0fea99d-4c4d-4a0c-a2d7-f4d6487b5b6f" />
+<img width="854" height="319" alt="image" src="https://github.com/user-attachments/assets/2126efce-3c47-4585-bf85-cdb459a5b525" />
+<img width="861" height="338" alt="image" src="https://github.com/user-attachments/assets/2810ff38-f771-4def-9b43-c82cf879d2f5" />
+<img width="805" height="339" alt="image" src="https://github.com/user-attachments/assets/aebdc021-fff6-421c-9709-b797fa13e9cf" />
 
 
 
@@ -38,8 +42,8 @@ Because this taps directly into HLS internals, you have to build it as an integr
 
 1. **Clone it:** Clone this repository right next to your local `haskell-language-server` source code.
 2. **Link the Cabal Project:** Add `../hls-hover-plugin` (or whatever you named the folder) to the `packages:` list in the HLS `cabal.project` file.
-3. **Un-hide the Package:** Open `haskell-language-server.cabal`, find the main `library` block, and add `hls-hover-plugin` to the `build-depends` list.
-4. **Wire it to the Switchboard:** Open `src/HlsPlugins.hs` in the HLS repo.
+3. **Add it to Cabal libs:** Open `haskell-language-server.cabal`, find the main `library` block, and add `hls-hover-plugin` to the `build-depends` list.
+4. **Wire it :** Open `src/HlsPlugins.hs` in the HLS repo.
 * Add `import qualified HoverPlugin` to the global imports.
 * Add `let pId = "hover" in HoverPlugin.descriptor (pluginRecorder pId) pId :` unconditionally to the top of the `allPlugins` cons list.
 
