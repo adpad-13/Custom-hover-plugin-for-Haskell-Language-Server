@@ -1,4 +1,0 @@
-{
-    "haskell.serverExecutablePath": "/home/kali/haskell-language-server/dist-newstyle/build/x86_64-linux/ghc-9.10.3/haskell-language-server-2.13.0.0/x/haskell-language-server/build/haskell-language-server/haskell-language-server",
-    "haskell.manageHLS": "PATH"
-}
