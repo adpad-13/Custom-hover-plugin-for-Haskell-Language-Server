@@ -55,9 +55,9 @@ let pId = "hover" in HoverPlugin.descriptor (pluginRecorder pId) pId :
 ```
 
 *5. Build*
-bash
+```
 cabal build exe:haskell-language-server
-
+```
 
 *6. Point VS Code at your build*
 
